@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}新增心得 - 書本閱讀心得記錄{% endblock %}
+{% block header_title %}新增書本心得與筆記{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <form method="POST">
+            <div class="form-group">
+                <label for="title">欄位 1：書名 (Title)</label>
+                <input type="text" id="title" name="title" placeholder="例如：原子習慣" required>
+            </div>
+
+            <div class="form-group">
+                <label for="author">欄位 2：書作者 (Author)</label>
+                <input type="text" id="author" name="author" placeholder="例如：詹姆斯‧克利爾" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content">欄位 3：心得內容 (Content)</label>
+                <textarea id="content" name="content" rows="4" placeholder="記錄你對這本書的整體感想、啟發或評價..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="note">欄位 4：筆記 / 紀錄 (Note)</label>
+                <textarea id="note" name="note" rows="4" placeholder="記錄書中的金句、關鍵章節重點、行動清單..." required></textarea>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <button type="submit" class="btn">儲存記錄</button>
+                <a href="{{ url_for('index') }}" class="cancel-link">取消返回</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

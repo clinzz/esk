@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}閱讀清單 - 書本閱讀心得記錄{% endblock %}
+
+{% block header_action %}
+    <a href="{{ url_for('create') }}" class="btn">+ 新增書本心得</a>
+{% endblock %}
+
+{% block content %}
+    {% for book in books %}
+        <article class="card">
+            <div class="card-header">
+                <h2 class="book-title">{{ book.title }}</h2>
+                <div class="book-author">作者：{{ book.author }}</div>
+            </div>
+
+            <div class="section-label">📖 心得內容</div>
+            <div class="section-box">{{ book.content }}</div>
+
+            <div class="section-label">📝 筆記 / 重點紀錄</div>
+            <div class="section-box note-box">{{ book.note }}</div>
+        </article>
+    {% else %}
+        <div class="card">
+            <p style="text-align: center; color: #9ca3af; margin: 20px 0;">目前尚無閱讀心得記錄，點擊右上角新增第一本吧！</p>
+        </div>
+    {% endfor %}
+{% endblock %}
